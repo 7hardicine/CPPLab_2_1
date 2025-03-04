@@ -27,10 +27,10 @@ int main()
 	char IsNotExit = 0;
 	int size = 0;
 	string name;
-	int number = 0;
 
 	do
-	{
+	{	
+		int number = 0;
 		for (int i = 0; i < 4; i++)
 		{
 			cout << "¬ведите размер массива: ";
@@ -85,15 +85,15 @@ double* FreeMemory(double* arr_start)
 
 int CountNumberOfSeq(double* arr_start, int arr_size)
 {
-	int k1 = 1;
-	int IsOverThree1 = 0;
+	int k = 0;
+	int IsOverThree = 0;
 	int NumOfSeq = 0;
-	for (int i = 1; i < arr_size; i++)
+	for (int i = 0; i < arr_size; i++)
 	{
-		*(arr_start + i - 1) > 0 && *(arr_start + i - 1) <= *(arr_start + i) ? k1++ : k1 = -1;
-		k1 >= 3 ? IsOverThree1 = 1 : IsOverThree1;
-		k1 == -1 && IsOverThree1 == 1 ? NumOfSeq++, k1 = 1, IsOverThree1 = 0 : NumOfSeq;
-		k1 == -1 ? k1 = 1 : k1;
+		*(arr_start + i) > 0 ? k++ : k = -1;
+		k >= 3 ? IsOverThree = 1 : IsOverThree;
+		(k == -1 && IsOverThree == 1) || (i == arr_size - 1 && IsOverThree == 1) ? NumOfSeq++, k = 0, IsOverThree = 0 : NumOfSeq;
+		k == -1 ? k = 0 : k;
 	}
 	return NumOfSeq;
 }
