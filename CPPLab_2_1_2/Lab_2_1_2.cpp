@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ctime>
 #include <Windows.h>
 #include <string>
 using namespace std;
@@ -65,7 +64,7 @@ void TaskFunc(T* arr_start, int arr_size, string arr_name)
 			avg_value = summ_of_seq / k, k = 0, IsOverThree = 0, \
 			*(arr_start + max_el_index) = avg_value, \
 			*(arr_start + min_el_index) = avg_value, summ_of_seq = 0 : avg_value;
-		k == -1 ? k = 0 : k;
+		k == -1 ? k = 0, summ_of_seq = 0 : k;
 	}
 
 	ShowArr(arr_start, arr_size, arr_name, "Измененный массив");
@@ -75,7 +74,6 @@ int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	srand(time(0));
 
 	double* arr_double = 0;
 	int* arr_int = 0;
