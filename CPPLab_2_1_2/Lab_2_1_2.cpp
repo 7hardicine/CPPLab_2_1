@@ -56,15 +56,15 @@ void TaskFunc(T* arr_start, int arr_size, string arr_name)
 	for (int i = 0; i < arr_size; i++)
 	{
 		*(arr_start + i) > 0 ? k++, summ_of_seq += *(arr_start + i), \
-			*(arr_start + max_el_index) < *(arr_start + i) ? max_el_index = i : max_el_index, \
-			*(arr_start + min_el_index) > *(arr_start + i) ? min_el_index = i : min_el_index : k = -1;
-		k >= 3 ? IsOverThree = 1 : IsOverThree;
-		k == -1 && IsOverThree == 0 && i < arr_size - 1 ? max_el_index = i + 1, min_el_index = i + 1 : k;
+			* (arr_start + i) > * (arr_start + max_el_index) ? max_el_index = i : max_el_index, \
+			* (arr_start + i) < *(arr_start + min_el_index) ? min_el_index = i : min_el_index \
+			: k = -1;
+		k > 3 ? IsOverThree = 1 : IsOverThree;
 		(k == -1 && IsOverThree == 1) || (i == arr_size - 1 && IsOverThree == 1) ? \
 			avg_value = summ_of_seq / k, k = 0, IsOverThree = 0, \
-			*(arr_start + max_el_index) = avg_value, \
-			*(arr_start + min_el_index) = avg_value, summ_of_seq = 0 : avg_value;
-		k == -1 ? k = 0, summ_of_seq = 0 : k;
+			*(arr_start + max_el_index) = avg_value, *(arr_start + min_el_index) = avg_value : \
+			avg_value;
+		k == -1 ? k = 0, avg_value = 1, summ_of_seq = 0, max_el_index = i + 1, min_el_index = i + 1 : k;
 	}
 
 	ShowArr(arr_start, arr_size, arr_name, "Измененный массив");

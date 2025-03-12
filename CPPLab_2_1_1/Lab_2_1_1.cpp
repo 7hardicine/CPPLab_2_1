@@ -91,7 +91,7 @@ int CountNumberOfSeq(double* arr_start, int arr_size)
 	for (int i = 0; i < arr_size; i++)
 	{
 		*(arr_start + i) > 0 ? k++ : k = -1;
-		k >= 3 ? IsOverThree = 1 : IsOverThree;
+		k > 3 ? IsOverThree = 1 : IsOverThree;
 		(k == -1 && IsOverThree == 1) || (i == arr_size - 1 && IsOverThree == 1) ? \
 			NumOfSeq++, k = 0, IsOverThree = 0 : NumOfSeq;
 		k == -1 ? k = 0 : k;
